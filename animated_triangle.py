@@ -19,7 +19,7 @@ X = np.linspace(-1, 1, data.shape[-1])
 G = 3 #* np.exp(-4 * X ** 2)
 bottom = 20
 coef_persp = 1.3
-coef_pitch = 0.4
+coef_pitch = 0.02
 
 # Generate line plots
 lines = []
@@ -41,7 +41,7 @@ ax.set_yticks([])
 ax.text(0.5, 1.0, "TRIANGLE WAVE ", transform=ax.transAxes,
         ha="right", va="bottom", color="w",
         family="sans-serif", fontweight="light", fontsize=16)
-ax.text(0.5, 1.0, "EXPERIENCE", transform=ax.transAxes,
+ax.text(0.5, 1.0, "SERIES", transform=ax.transAxes,
         ha="left", va="bottom", color="w",
         family="sans-serif", fontweight="bold", fontsize=16)
 

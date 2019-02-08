@@ -3,23 +3,32 @@ import scipy.signal              # however, var[1] must have a range(upper-lower
 import numpy as np
 import matplotlib.pyplot as plt
 
+
+# The x and y axis's are a two dimensional list called var
+
+# Generation of the y axis
 upper = 2*np.pi
 lower = 0
 step = 0.001
 var = []
-var.append(np.arange(lower, upper+step, step))  # the x and y axis's are a two dimensional list called var
+var.append(np.arange(lower, upper+step, step))  
+
+# Generation of triangle wave used in calculating the Fourier coefficents
 var.append(sy.signal.sawtooth(var[0]+(np.pi/2), 0.5))
-#var.append(sy.signal.square(var[0]+(np.pi/2), 0.5))
 
+# The 0th term is empty
 term = np.zeros(len(var[0]))
-for n in range(1, 11):
-    An = (1/np.pi)*np.sum(var[1]*np.sin(n*var[0]))*step
-    term = term + An*np.sin(n*var[0])
-    plt.plot(var[0], term)
-    #Bn = (1/np.pi)*np.sum(var[1]*np.cos(n*var[0]))*step
-    #term = term + Bn*np.cos(n*var[0])
-    #plt.plot(var[0], term)
-plt.plot(var[0], term)
 
-#plt.plot(var[0], var[1])
+for n in range(1, 11):
+    # Calculate coefficient for nth term of series
+    An = (1/np.pi)*np.sum(var[1]*np.sin(n*var[0]))*step
+    # Calculate new wave
+    wave = An*np.sin(n*var[0])
+    # Add the newly calculated wave to series
+    term = term + wave
+    # plot the newly calculated functions
+    plt.plot(var[0], wave)
+    plt.plot(var[0], term)
+
+# Display the plot with all functions shown
 plt.show()
