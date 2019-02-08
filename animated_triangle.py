@@ -19,7 +19,7 @@ X = np.linspace(-1, 1, data.shape[-1])
 G = 3 #* np.exp(-4 * X ** 2)
 bottom = 20
 coef_persp = 1.3
-coef_pitch = 0.02
+coef_pitch = 0.4
 
 # Generate line plots
 lines = []
